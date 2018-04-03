@@ -3,5 +3,5 @@ Rails.application.routes.draw do
     resources :requested_songs, only: :create
   end
 
-  match '/song_name' => 'slack#song_name', via: :post
+  match '/song_name' => 'slack#post_song_name', via: :post
 end

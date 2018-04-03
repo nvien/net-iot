@@ -1,8 +1,6 @@
 class Api::RequestedSongsController < Api::BaseController
   def create
-    # @tracks = client.get_tracks(request.body.read)
-
-    render text: "#{request.body.read}"
+    @tracks = client.get_tracks(params[:track_name])
   end
 
   private
