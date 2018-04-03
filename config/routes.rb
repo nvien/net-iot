@@ -1,3 +1,3 @@
 Rails.application.routes.draw do
-  match '/curl_example' => 'request_example#curl_post_example', via: :post
+  match '/song_name' => 'slack#song_name', via: :post
 end
