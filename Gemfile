@@ -28,6 +28,7 @@ gem 'jbuilder', '~> 2.5'
 gem 'responders'
 gem 'rspotify'
 gem 'settingslogic', '~> 2.0.9'
+gem 'sidekiq'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 

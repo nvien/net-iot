@@ -1,11 +1,11 @@
 class Api::RequestedSongsController < Api::BaseController
   def create
-    @tracks = client.get_tracks(params[:track_name])
+    @song_request = SongRequest.create(song_request_params)
   end
 
   private
 
-  def client
-    @client ||= ApiClients::SpotifyClient.new
+  def song_request_params
+    params.permit(:track_name)
   end
 end
