@@ -7,5 +7,5 @@ Rails.application.routes.draw do
 
   mount Sidekiq::Web => '/sidekiq'
 
-  match '/song_name' => 'slack#song_name', via: :post
+  match '/song_name' => 'slack#post_song_name', via: :post
 end
