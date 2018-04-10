@@ -4,7 +4,7 @@ class Api::RequestedSongsController < Api::BaseController
     track_name = params[:text]
     response_url = params[:response_url]
 
-    # tracks = spotify_client.get_tracks(track_name)
+    @tracks = spotify_client.get_tracks(track_name)
 
     body = {
     "text": "Would you like to play a game?",
