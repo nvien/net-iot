@@ -226,7 +226,7 @@ DEPENDENCIES
   byebug
   coffee-rails (~> 4.2)
   dotenv-rails (~> 2.1.1)
-  httmultiparty (~> 0.3.16)
+  httmultiparty
   httparty
   jbuilder (~> 2.5)
   jquery-rails
@@ -248,4 +248,4 @@ DEPENDENCIES
   web-console
 
 BUNDLED WITH
-   1.16.1
+   1.14.5
