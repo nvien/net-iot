@@ -4,7 +4,7 @@ class Api::RequestedSongsController < Api::BaseController
   def create
 #     render json: {
 #     "response_type": "ephemeral",
-#     "text": "We found multiple songs, is it any of these?",
+#     "text": "We found multiple songs, is it any of these?#{params}",
 #     "attachments": [
 #         {
 #             "text":"Partly cloudy today and tomorrow"
@@ -12,12 +12,12 @@ class Api::RequestedSongsController < Api::BaseController
 #     ]
 # }
 
-    @tracks = SongRequest.get_tracks(params[:text])
+    @tracks = SongRequest.create(song_request_params)
   end
 
   private
 
   def song_request_params
-    params.permit(:track_name)
+    params.permit(:text)
   end
 end
