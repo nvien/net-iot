@@ -42,7 +42,7 @@ class Api::RequestedSongsController < Api::BaseController
     ]
     }
 
-    ExternalApiRequest.new(http_method: :post, base_uri: response_url, options: {body: body})
+    ExternalApiRequest.new(http_method: :post, base_uri: params[:response_url], options: {body: body})
   end
 
   private
