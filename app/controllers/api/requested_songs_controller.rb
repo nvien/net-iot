@@ -12,7 +12,7 @@ class Api::RequestedSongsController < Api::BaseController
 #     ]
 # }
 
-    @tracks = client.get_tracks(params[:track_name])
+    @tracks = SongRequest.get_tracks(params[:text])
   end
 
   private
