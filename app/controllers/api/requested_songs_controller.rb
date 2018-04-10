@@ -12,7 +12,7 @@ class Api::RequestedSongsController < Api::BaseController
 #     ]
 # }
 
-    @tracks = SongRequest.create(track_name: params[:text])
+    @song_request = SongRequest.create(track_name: params[:text])
   end
 
   private
