@@ -42,7 +42,9 @@ class Api::RequestedSongsController < Api::BaseController
     ]
     }
 
-    ExternalApiRequest.new(http_method: :post, base_uri: params[:response_url], options: {body: body})
+    headers = { 'Content-type' => 'application/json' }
+
+    ExternalApiRequest.new(http_method: :post, base_uri: params[:response_url], options: {body: body, headers: headers})
   end
 
   private
