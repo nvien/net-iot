@@ -1,25 +1,34 @@
 module ApiClients
   class SpotifyClient
-    def initialize
-      authenticate_with_spotify
+    def add_track_to_playlist(track)
+      playlist.add_tracks!([track])
     end
 
     def get_tracks(track_name)
       RSpotify::Track.search(track_name)
     end
 
+    def get_track(track_id)
+      RSpotify::Track.find(track_id)
+    end
+
     private
 
-    def authenticate_with_spotify
-      RSpotify.authenticate(client_id, client_secret)
+    def playlist
+      @playlist ||= RSpotify::Playlist.find(user.id, playlist_id)
     end
 
-    def client_id
-      Settings.spotify_api.client_id
+    def playlist_id
+      Settings.spotify_api.playlist_id
     end
 
-    def client_secret
-      Settings.spotify_api.client_secret
+    def spotify_user_id
+      Settings.spotify_api.user_id
+    end
+
+    def user
+      local_user = User.find(spotify_user_id)
+      RSpotify::User.new(local_user.spotify_credentials)
     end
   end
 end
