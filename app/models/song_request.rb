@@ -8,18 +8,18 @@ class SongRequest < ApplicationRecord
 
   def post_something(response_url)
     body = {
-    "text": "Would you like to play a game?",
+    "text": "So here are the top 5 tracks we found from your request:",
     "response_type": "in_channel",
     "attachments": [
         {
-            "text": "Choose a game to play",
-            "fallback": "You are unable to choose a game",
-            "callback_id": "wopr_game",
-            "color": "#3AA3E3",
+            "text": "Which track would you like to add?",
+            "fallback": "You are unable to choose a track",
+            "callback_id": "add_song",
+            "color": "#E58B22",
             "attachment_type": "default",
             "actions": [
                 {
-                    "name": "song",
+                    "name": "tracks",
                     "text": "Chess",
                     "type": "button",
                     "value": "trackstrack_id"

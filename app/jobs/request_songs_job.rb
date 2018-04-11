@@ -2,55 +2,77 @@ class RequestSongsJob < ApplicationJob
   queue_as :default
 
   def perform(track_name, response_url)
-    tracks = spotify_client.get_tracks(track_name)[0..4]
+    @tracks = spotify_client.get_tracks(track_name)[0..4]
 
-    Rails.logger(tracks)
-    body = {
-    "text": "Would you like to play a game?",
-    "attachments": [
-        {
-            "text": "Choose a game to play",
-            "fallback": "You are unable to choose a game",
-            "callback_id": "wopr_game",
-            "color": "#3AA3E3",
-            "attachment_type": "default",
-            "actions": [
-                {
-                    "name": "song",
-                    "text": "Chess",
-                    "type": "button",
-                    "value": "trackstrack_id"
-                },
-                {
-                    "name": "game",
-                    "text": "Falken's Maze",
-                    "type": "button",
-                    "value": "maze"
-                },
-                {
-                    "name": "game",
-                    "text": "Thermonuclear War",
-                    "style": "danger",
-                    "type": "button",
-                    "value": "war",
-                    "confirm": {
-                        "title": "Are you sure?",
-                        "text": "Wouldn't you prefer a good game of chess?",
-                        "ok_text": "Yes",
-                        "dismiss_text": "No"
-                    }
-                }
-            ]
-        }
-    ]
-  }.to_json
-
-    ExternalApiRequest.new(http_method: :post, base_uri: response_url, options: {body: body})
+    post_back_to_slack
   end
 
   private
 
+  def construct_body
+    {
+    "text": "So here are the top 5 tracks we found from your request:",
+    "response_type": "in_channel",
+    "attachments": [
+        {
+            "text": "Which track would you like to add?",
+            "fallback": "You are unable to choose a track",
+            "callback_id": "add_track",
+            "color": "#E58B22",
+            "attachment_type": "default",
+            "actions": [
+                {
+                    "name": "track 1",
+                    "text": "#{@tracks[0].name} #{@tracks[0].artist.name}",
+                    "type": "button",
+                    "value": "#{@tracks[0].track_id}"
+                },
+                {
+                    "name": "track 2",
+                    "text": "#{@tracks[1].name} #{@tracks[1].artist.name}",
+                    "type": "button",
+                    "value": "#{@tracks[1].track_id}"
+                },
+                {
+                    "name": "track 3",
+                    "text": "#{@tracks[2].name} #{@tracks[2].artist.name}",
+                    "type": "button",
+                    "value": "#{@tracks[2].track_id}"
+                },
+                {
+                    "name": "track 4",
+                    "text": "#{@tracks[3].name} #{@tracks[3].artist.name}",
+                    "type": "button",
+                    "value": "#{@tracks[3].track_id}"
+                },
+                {
+                    "name": "track 5",
+                    "text": "#{@tracks[4].name} #{@tracks[4].artist.name}",
+                    "type": "button",
+                    "value": "#{@tracks[4].track_id}"
+                }
+            ]
+        }
+    ]
+    }.to_json
+  end
+
+  def no_tracks_received
+    {
+      'text': "We couldn't find the track on spotify :( Try again?",
+      'response_type': 'in_channel'
+    }
+  end
+
   def spotify_client
     @spotify_client ||= ApiClients::SpotifyClient.new
+  end
+
+  def post_back_to_slack
+    if @tracks.nil?      ### what happens when we request a non-existant track?
+      ExternalApiRequest.new(http_method: :post, base_uri: response_url, options: { body: no_tracks_received })
+    else
+      ExternalApiRequest.new(http_method: :post, base_uri: response_url, options: { body: constrct_body })
+    end
   end
 end
