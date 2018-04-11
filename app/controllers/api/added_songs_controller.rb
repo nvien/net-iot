@@ -1,6 +1,7 @@
 class Api::AddedSongsController < Api::BaseController
   def create
     # spotify_client.add_track_to_playlist(track)
+    @callback_id = callback_id
   end
 
   private

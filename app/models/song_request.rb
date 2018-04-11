@@ -10,7 +10,6 @@ class SongRequest < ApplicationRecord
     body = {
     "text": "So here are the top 5 tracks matching #{track_name}:",
     "response_type": "in_channel",
-    "replace_original": true,
     "attachments": [
         {
             "text": "Which track would you like to add?",
