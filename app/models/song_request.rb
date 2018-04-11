@@ -8,7 +8,7 @@ class SongRequest < ApplicationRecord
 
   def post_something(response_url)
     body = {
-    "text": "So here are the top 5 tracks we found from your request:",
+    "text": "So here are the top 5 tracks matching #{track_name}:",
     "response_type": "in_channel",
     "replace_original": true,
     "attachments": [
