@@ -72,7 +72,7 @@ class RequestSongsJob < ApplicationJob
     if @tracks.nil?      ### what happens when we request a non-existant track? unlikely that it returns nil.
       ExternalApiRequest.new(http_method: :post, base_uri: response_url, options: { body: no_tracks_received })
     else
-      ExternalApiRequest.new(http_method: :post, base_uri: response_url, options: { body: constrct_body })
+      ExternalApiRequest.new(http_method: :post, base_uri: response_url, options: { body: construct_body })
     end
   end
 end
