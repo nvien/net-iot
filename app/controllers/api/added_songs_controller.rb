@@ -1,7 +1,7 @@
 class Api::AddedSongsController < Api::BaseController
   def create
     # spotify_client.add_track_to_playlist(track)
-    @callback_id = callback_id
+    @track_name = track_name
   end
 
   private
@@ -10,8 +10,8 @@ class Api::AddedSongsController < Api::BaseController
     @payload ||= JSON.parse(params['payload'])
   end
 
-  def callback_id
-    payload['callback_id']
+  def track_name
+    payload['actions'].first['name']
   end
 
   def spotify_client

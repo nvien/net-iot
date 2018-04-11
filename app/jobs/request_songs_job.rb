@@ -22,32 +22,32 @@ class RequestSongsJob < ApplicationJob
             "attachment_type": "default",
             "actions": [
                 {
-                    "name": "track 1",
-                    "text": "#{@tracks[0].name} #{@tracks[0].artist.name}",
+                    "name": "#{@tracks[0].name} - #{@tracks[0].artist.name}",
+                    "text": "#{@tracks[0].name} - #{@tracks[0].artist.name}",
                     "type": "button",
                     "value": "#{@tracks[0].track_id}"
                 },
                 {
-                    "name": "track 2",
-                    "text": "#{@tracks[1].name} #{@tracks[1].artist.name}",
+                    "name": "#{@tracks[1].name} - #{@tracks[1].artist.name}",
+                    "text": "#{@tracks[1].name} - #{@tracks[1].artist.name}",
                     "type": "button",
                     "value": "#{@tracks[1].track_id}"
                 },
                 {
-                    "name": "track 3",
-                    "text": "#{@tracks[2].name} #{@tracks[2].artist.name}",
+                    "name": "#{@tracks[2].name} - #{@tracks[2].artist.name}",
+                    "text": "#{@tracks[2].name} - #{@tracks[2].artist.name}",
                     "type": "button",
                     "value": "#{@tracks[2].track_id}"
                 },
                 {
-                    "name": "track 4",
-                    "text": "#{@tracks[3].name} #{@tracks[3].artist.name}",
+                    "name": "#{@tracks[3].name} - #{@tracks[3].artist.name}",
+                    "text": "#{@tracks[3].name} - #{@tracks[3].artist.name}",
                     "type": "button",
                     "value": "#{@tracks[3].track_id}"
                 },
                 {
-                    "name": "track 5",
-                    "text": "#{@tracks[4].name} #{@tracks[4].artist.name}",
+                    "name": "#{@tracks[4].name} - #{@tracks[4].artist.name}",
+                    "text": "#{@tracks[4].name} - #{@tracks[4].artist.name}",
                     "type": "button",
                     "value": "#{@tracks[4].track_id}"
                 }

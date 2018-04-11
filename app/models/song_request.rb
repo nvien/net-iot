@@ -19,20 +19,20 @@ class SongRequest < ApplicationRecord
             "attachment_type": "default",
             "actions": [
                 {
-                    "name": "tracks",
-                    "text": "Chess",
+                    "name": "Track 1 name - Track 1 artist",
+                    "text": "Track 1 name - Track 1 artist",
                     "type": "button",
-                    "value": "trackstrack_id"
+                    "value": "track_uuid chess"
                 },
                 {
-                    "name": "game",
-                    "text": "Falken's Maze",
+                    "name": "Track 2 name - Track 2 artist",
+                    "text": "Track 2 name - Track 2 artist",
                     "type": "button",
                     "value": "maze"
                 },
                 {
-                    "name": "game",
-                    "text": "Thermonuclear War",
+                    "name": "Track 3 name - Track 3 artist",
+                    "text": "Track 3 name - Track 3 artist",
                     "style": "danger",
                     "type": "button",
                     "value": "war",
