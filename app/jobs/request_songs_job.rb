@@ -4,7 +4,7 @@ class RequestSongsJob < ApplicationJob
   def perform(track_name, response_url)
     @tracks = spotify_client.get_tracks(track_name)[0..4]
 
-    post_back_to_slack
+    post_back_to_slack(response_url)
   end
 
   private
@@ -68,7 +68,7 @@ class RequestSongsJob < ApplicationJob
     @spotify_client ||= ApiClients::SpotifyClient.new
   end
 
-  def post_back_to_slack
+  def post_back_to_slack(response_url)
     if @tracks.nil?      ### what happens when we request a non-existant track? unlikely that it returns nil.
       ExternalApiRequest.new(http_method: :post, base_uri: response_url, options: { body: no_tracks_received })
     else
