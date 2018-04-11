@@ -2,6 +2,8 @@ defaults: &defaults
   spotify_api:
     client_id: <%= ENV['SPOTIFY_CLIENT_ID'] %>
     client_secret: <%= ENV['SPOTIFY_CLIENT_SECRET'] %>
+    playlist_id: <%= ENV['SPOTIFY_PLAYLIST_ID'] %>
+    user_id: <%= ENV['SPOTIFY_USER_ID'].to_i %>
 
 development:
   <<: *defaults
