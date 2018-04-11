@@ -3,10 +3,12 @@ class SongRequest < ApplicationRecord
   validates :response_url, presence: :true
 
   after_create { RequestSongsJob.perform_later(track_name, response_url) }
-  after_create { post_something(response_url) }
+  after_create do
+    sleep 1.5
+    post_something(response_url)
+  end
 
   def post_something(response_url)
-    sleep 1.5
     body = {
     "text": "So here are the top 5 tracks matching #{track_name}:",
     "response_type": "in_channel",
