@@ -16,9 +16,10 @@ ActiveRecord::Schema.define(version: 20180410224919) do
   enable_extension "plpgsql"
 
   create_table "song_requests", force: :cascade do |t|
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
     t.string   "track_name"
+    t.string   "response_url"
   end
 
   create_table "users", force: :cascade do |t|
@@ -27,5 +28,4 @@ ActiveRecord::Schema.define(version: 20180410224919) do
     t.datetime "created_at",          null: false
     t.datetime "updated_at",          null: false
   end
-
 end
