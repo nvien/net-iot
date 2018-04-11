@@ -9,6 +9,7 @@ class SongRequest < ApplicationRecord
   def post_something(response_url)
     body = {
     "text": "Would you like to play a game?",
+    "response_type": "in_channel",
     "attachments": [
         {
             "text": "Choose a game to play",
