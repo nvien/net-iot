@@ -8,10 +8,4 @@ class Api::RequestedSongsController < Api::BaseController
   def song_request_params
     params.permit(:text, :response_url)
   end
-
-  def spotify_client
-    @spotify_client ||= ApiClients::SpotifyClient.new
-  end
-
-
 end
