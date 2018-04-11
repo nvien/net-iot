@@ -5,8 +5,8 @@ class SongRequest < ApplicationRecord
   after_create { RequestSongsJob.perform_later(track_name, response_url) }
   after_create { post_something(response_url) }
 
-
   def post_something(response_url)
+    sleep 1.5
     body = {
     "text": "So here are the top 5 tracks matching #{track_name}:",
     "response_type": "in_channel",
@@ -19,19 +19,19 @@ class SongRequest < ApplicationRecord
             "attachment_type": "default",
             "actions": [
                 {
-                    "name": "Track 1 name - Track 1 artist",
+                    "name": "Track 1 name by Track 1 artist",
                     "text": "Track 1 name - Track 1 artist",
                     "type": "button",
                     "value": "track_uuid chess"
                 },
                 {
-                    "name": "Track 2 name - Track 2 artist",
+                    "name": "Track 2 name by Track 2 artist",
                     "text": "Track 2 name - Track 2 artist",
                     "type": "button",
                     "value": "maze"
                 },
                 {
-                    "name": "Track 3 name - Track 3 artist",
+                    "name": "Track 3 name by Track 3 artist",
                     "text": "Track 3 name - Track 3 artist",
                     "style": "danger",
                     "type": "button",
