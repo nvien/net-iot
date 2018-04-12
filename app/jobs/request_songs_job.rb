@@ -31,25 +31,25 @@ class RequestSongsJob < ApplicationJob
                     "name": "#{@tracks[1].name} by #{@tracks[1].artists.first.name}",
                     "text": "#{@tracks[1].name} - #{@tracks[1].artists.first.name}",
                     "type": "button",
-                    "value": "#{@tracks[1].track_id}"
+                    "value": "#{@tracks[1].uri}"
                 },
                 {
                     "name": "#{@tracks[2].name} by #{@tracks[2].artists.first.name}",
                     "text": "#{@tracks[2].name} - #{@tracks[2].artists.first.name}",
                     "type": "button",
-                    "value": "#{@tracks[2].track_id}"
+                    "value": "#{@tracks[2].uri}"
                 },
                 {
                     "name": "#{@tracks[3].name} by #{@tracks[3].artists.first.name}",
                     "text": "#{@tracks[3].name} - #{@tracks[3].artists.first.name}",
                     "type": "button",
-                    "value": "#{@tracks[3].track_id}"
+                    "value": "#{@tracks[3].uri}"
                 },
                 {
                     "name": "#{@tracks[4].name} by #{@tracks[4].artists.first.name}",
                     "text": "#{@tracks[4].name} - #{@tracks[4].artists.first.name}",
                     "type": "button",
-                    "value": "#{@tracks[4].track_id}"
+                    "value": "#{@tracks[4].uri}"
                 }
             ]
         }
