@@ -25,31 +25,31 @@ class RequestSongsJob < ApplicationJob
                     "name": "#{@tracks[0].name} by #{@tracks[0].artists.first.name}",
                     "text": "#{@tracks[0].name} - #{@tracks[0].artists.first.name}",
                     "type": "button",
-                    "value": "#{@tracks[0].uri}"
+                    "value": "#{@tracks[0].id}"
                 },
                 {
                     "name": "#{@tracks[1].name} by #{@tracks[1].artists.first.name}",
                     "text": "#{@tracks[1].name} - #{@tracks[1].artists.first.name}",
                     "type": "button",
-                    "value": "#{@tracks[1].uri}"
+                    "value": "#{@tracks[1].id}"
                 },
                 {
                     "name": "#{@tracks[2].name} by #{@tracks[2].artists.first.name}",
                     "text": "#{@tracks[2].name} - #{@tracks[2].artists.first.name}",
                     "type": "button",
-                    "value": "#{@tracks[2].uri}"
+                    "value": "#{@tracks[2].id}"
                 },
                 {
                     "name": "#{@tracks[3].name} by #{@tracks[3].artists.first.name}",
                     "text": "#{@tracks[3].name} - #{@tracks[3].artists.first.name}",
                     "type": "button",
-                    "value": "#{@tracks[3].uri}"
+                    "value": "#{@tracks[3].id}"
                 },
                 {
                     "name": "#{@tracks[4].name} by #{@tracks[4].artists.first.name}",
                     "text": "#{@tracks[4].name} - #{@tracks[4].artists.first.name}",
                     "type": "button",
-                    "value": "#{@tracks[4].uri}"
+                    "value": "#{@tracks[4].id}"
                 }
             ]
         }
