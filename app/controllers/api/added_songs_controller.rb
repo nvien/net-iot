@@ -1,7 +1,7 @@
 class Api::AddedSongsController < Api::BaseController
   def create
-    # spotify_client.add_track_to_playlist(track)
-    @track_name = track_name
+    spotify_client.add_track_to_playlist(track)
+    # @track_name = track_name
   end
 
   private
@@ -10,8 +10,8 @@ class Api::AddedSongsController < Api::BaseController
     @payload ||= JSON.parse(params['payload'])
   end
 
-  def track_name
-    payload['actions'].first['name']
+  def track_id
+    payload['actions'].first['value']
   end
 
   def spotify_client
@@ -19,6 +19,6 @@ class Api::AddedSongsController < Api::BaseController
   end
 
   def track
-    spotify_client.get_track(params[:track_id])
+    @track ||= spotify_client.get_track(track_id)
   end
 end

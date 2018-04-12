@@ -1,7 +1,8 @@
 module ApiClients
   class SpotifyClient
     def add_track_to_playlist(track)
-      playlist.add_tracks!([track])
+      resp = playlist.add_tracks!([track])
+      Rails.logger.info(resp)
     end
 
     def get_tracks(track_name)
