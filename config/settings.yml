@@ -1,4 +1,6 @@
 defaults: &defaults
+  slack_api:
+    authorization_token: <%= ENV['SLACK_AUTHORIZATION_TOKEN'] %>
   spotify_api:
     client_id: <%= ENV['SPOTIFY_CLIENT_ID'] %>
     client_secret: <%= ENV['SPOTIFY_CLIENT_SECRET'] %>

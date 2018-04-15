@@ -1,7 +1,6 @@
 class Api::AddedSongsController < Api::BaseController
   def create
     spotify_client.add_track_to_playlist(track)
-    # @track_name = track_name
   end
 
   private
